@@ -1,3 +1,7 @@
+# In diesem Skript werden die Daten gebaut, die für einen forecast der Aktienprämien
+# notwendig sind. Dazu braucht man die Features, die Aktienreturns und die tb3ms 
+# (risikoloser Bond). Die resultierenden Daten werden abgespeichert.
+
 library(data.table)
 
 # Data Wrangling
@@ -30,7 +34,7 @@ setnames(ret_long, "value", "return")
 
 # joine data und ret_long
 # beachte, dass alle features bereits gelagged sind. Man kann also einfach 
-# über das Datum joinen.
+# über das Datum joinen für einen forecast horizon h = 1.
 
 data_ret <- data[ret_long, on=.(DATE, permno), nomatch=NULL]
 
