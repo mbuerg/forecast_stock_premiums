@@ -1,3 +1,13 @@
+# config file
+config.*
+
+# env file
+/renv
+
+# data
+/data 
+
+
 # History files
 .Rhistory
 .Rapp.history
