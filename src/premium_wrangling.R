@@ -4,6 +4,7 @@
 
 library(data.table)
 
+
 # Data Wrangling
 
 # importiere Daten
@@ -12,6 +13,7 @@ ret <- fread(path_ret_raw, sep =",")
 bond <- fread(path_bond_raw)
 
 # mache Datum zu characters, um sie später in Monate und Jahre zu trennen
+# strptime dauert zu lange
 data <- data[, DATE:=as.character(DATE)]
 data <- data[, DATE:=substring(DATE, 1, 6)]
 data <- data[, MONTH:=as.integer(substring(DATE, 5))]
