@@ -72,4 +72,4 @@ rolling_window_rf_walk_forward <- function(data
   return(list(error, msfe, rf_fit, predictions))
 }
 
-docstring(rolling_window_rf_walk_forward)
+#docstring(rolling_window_rf_walk_forward)
