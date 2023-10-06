@@ -26,16 +26,17 @@ rolling_window_rf_walk_forward <- function(data
   #' @usage rolling_window_rf_walk_forward(data, window_size)
   #' 
   #' @return Returns every error of the individual test errors, the msfe,
-  #' the ranger fit and all predictions made on the testdata
+  #' the last ranger fit and all predictions made on the test data
   #' 
-  #' @details In order to use this function properly the response variable has
+  #' @details In order to use this function properly the response variable y has
   #' to be shifted according to the forecast horizon you are interested in.
   #' eg if you are interested in forecasting 3 steps ahead you have to make
   #' sure your data can be used to estimate the model 
-  #' r_{t+3} = F_{t} + epsilon_{t+3}
+  #' y_{t+3} = F(x_{t}) + epsilon_{t+3} with x_{t} being features at time t
   #' 
   #' @examples
-  #' rolling_window_rf_walk_forward(premium_data, 10000) creates a rolling window of size 10000
+  #' rolling_window_rf_walk_forward(premium_data, 10000) creates a 
+  #' rolling window of size 10000
   
   
   #set.seed(123)
