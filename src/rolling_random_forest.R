@@ -1,5 +1,3 @@
-library(data.table)
-library(ranger)
 library(docstring)
 
 rolling_window_rf_walk_forward_ts <- function(data
@@ -53,7 +51,7 @@ rolling_window_rf_walk_forward_ts <- function(data
     
     window <- data[i:(i+window_size-1), ]
     
-    rf_fit <- ranger(response ~.
+    rf_fit <- ranger::ranger(response ~.
                      , data=window
                      , num.trees=trees
                      , sample.fraction=s
@@ -75,4 +73,3 @@ rolling_window_rf_walk_forward_ts <- function(data
   
   return(list(error, msfe, rf_fit, predictions))
 }
-
