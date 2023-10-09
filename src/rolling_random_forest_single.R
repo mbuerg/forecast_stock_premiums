@@ -1,6 +1,6 @@
 library(docstring)
 
-rolling_window_rf_walk_forward_ts <- function(data
+rolling_window_rf_walk_forward_single <- function(data
                                            , window_size
                                            , response
                                            , mtry_split_amount
@@ -9,10 +9,10 @@ rolling_window_rf_walk_forward_ts <- function(data
                                            ){
   #' Rolling Window Random Forest with walk-forward validation (time series)
   #' 
-  #' @description This function rolls over time series data and fits a 
-  #' random forest (RF) on the window. After every window the fit is tested on the
-  #' very next observation. The window continues to roll until there is no more
-  #' test data left.
+  #' @description This function rolls over panel data for a single
+  #' object of interest (eg one stock) and fits a random forest (RF) on the window. 
+  #' After every window the fit is tested on the very next observation. 
+  #' The window continues to roll until there is no more test data left.
   #' 
   #' After this process was finished the MSFE is calculated that is the 
   #' MSE of the errors calculated on the very next observations after every
@@ -37,6 +37,11 @@ rolling_window_rf_walk_forward_ts <- function(data
   #' sure your data can be used to estimate the model 
   #' y_{t+3} = F(x_{t}) + epsilon_{t+3} with x_{t} being features at time t.
   #' Omit the observations that have NA in the response due to the shifting.
+  #' 
+  #' Furthermore if your data consists of more than one object of interest
+  #' eg more than one stock, individual or similar you have to filter the 
+  #' data on the object of interest first before you pass the data into 
+  #' the function.
   #' 
   #' @examples
   #' rolling_window_rf_walk_forward_ts(premium_data, 10000)
