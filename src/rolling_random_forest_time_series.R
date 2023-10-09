@@ -24,9 +24,9 @@ rolling_window_rf_walk_forward_ts <- function(data
   #' @param mtry_split_amount specifies the mtry parameter that gives the amount
   #' of features used for each split in each tree for the RF
   #' @param trees number of trees in the RF
-  #' @param s sample size 
+  #' @param s sample size of bootstrap
   #' 
-  #' @usage rolling_window_rf_walk_forward(data, window_size)
+  #' @usage rolling_window_rf_walk_forward_ts(data, window_size)
   #' 
   #' @return Returns every error of the individual test errors, the msfe,
   #' the last ranger fit and all predictions made on the test data
